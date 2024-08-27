@@ -1,47 +1,96 @@
 import axios from 'axios'
 import './home.css'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 
 export default function Home() {
 
     const [word, setWord] = useState()
-    const [hangIndex, setHangIndex] = useState(0)
+    const [lose, setLose] = useState(0)
     const abc = Array.from("abcdefghijklmnopqrstuvwxyz")
     console.log(abc)
 
     async function getWord() {
         const response = await axios.get("https://random-word-api.herokuapp.com/word")
         setWord(Array.from(response.data[0]))
+        closeModal()
     }
     useEffect(() => {
         console.log(word)
     }, [word])
+    function closeModal(){
+        const modal = Array.from(document.getElementsByClassName("start-modal"))
+        modal[0].classList += " unactive"
+    }
 
-    function keyPress(value) {
-        if(word.some((letter) => letter === value.toLowerCase())){
-            word.some((letter, i) => letter === value.toLowerCase() ? findLetter(letter, i) : null) 
+    function keyPress(e) {
+        const tar = e.target
+        const value = e.target.innerHTML
+        if (word.some((letter) => letter === value.toLowerCase())) {
+            word.some((letter, i) => letter === value.toLowerCase() ? findLetter(letter, i, tar) : null)
         } else {
-            printHangedMan()
+            printHangedMan(tar)
         }
     }
-    function findLetter(letter, index) {
-        console.log(letter, index)
+    function findLetter(letter, index, target) {
         const array = Array.from(document.getElementsByClassName("letters-underscore"))
         array[index].innerHTML = letter.toUpperCase()
+        array[index].classList += " correct"
+        target.classList += " correct-bc"
+        const response = Array.from(document.getElementsByClassName("correct"))
+        if (response.length === array.length) {
+            Swal.fire({
+                icon: "success",
+                title: "Congratulations!",
+                text: "You have guessed the word",
+                showConfirmButton: true,
+                background: "#ebebeb",
+                color: "#13315c",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonText: "Try Again",
+                customClass:{
+                    confirmButton: "swal-confirm-button"
+                }
+            }).then(res => {
+                if(res.isConfirmed){
+                    location.replace("/")
+                }
+            })
+        }
     }
-    function printHangedMan(){
+    function printHangedMan(target) {
         const hang = Array.from(document.getElementsByClassName("curtain"))
-        hang[hangIndex].classList += " transparent"
-        setHangIndex(hangIndex+1)
-        console.log(hang.length)
-        if(hangIndex === hang.length-1) console.log("perdiste 😂")
-        console.log(hangIndex)
+        hang[lose].classList += " transparent"
+        target.classList += " wrong-bc"
+        setLose(lose + 1)
+        if (lose === hang.length - 1) {
+            Swal.fire({
+                icon: "error",
+                title: "Oh no!",
+                text: `You have lost! The word was: ${word.join("").toUpperCase()}`,
+                showConfirmButton: true,
+                background: "#ebebeb",
+                color: "#13315c",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonText: "Try Again",
+                customClass:{
+                    confirmButton: "swal-confirm-button"
+                }
+            }).then(res => {
+                if(res.isConfirmed){
+                    location.replace("/")
+                }
+            })
+        }
     }
     return (
         <div className="main-container">
-            <button onClick={() => getWord()}>Comenzar</button>
             <div className="game-container">
+                <div className='start-modal'>
+                    <button onClick={() => getWord()}>START</button>
+                </div>
                 <div className="gallows-container">
                     <img src="/src/assets/gallows/ahorcado_0.png" alt="hangman-image" className="hangman-image" />
                     <div className='body-container'>
@@ -63,7 +112,7 @@ export default function Home() {
                     <div className="letters-container">
                         {
                             abc.map((letter, i) =>
-                                <div onClick={(e) => keyPress(e.target.innerText)} className="letter-icon" key={i}>{letter}</div>
+                                <div onClick={(e) => keyPress(e)} className="letter-icon" key={i}>{letter}</div>
                             )
                         }
                     </div>

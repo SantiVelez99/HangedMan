@@ -31,5 +31,5 @@
   pointer-events: none;
 }
 .unactive{
-  display: none;
+  display: none !important;
 }
