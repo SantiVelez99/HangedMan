@@ -1,0 +1,86 @@
+.game-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .gallows-container{
+        position: relative;
+        height: 50%;
+        width: 50%;
+        overflow: hidden;
+        .hangman-image{
+            width: 100%;
+        }
+        .body-container{
+            position: absolute;
+            top: 18%;
+            left: 53%;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-areas: 
+            "upper"
+            "middle"
+            "bottom"
+            ;
+            .upper{
+                grid-area: upper;
+                width: 200px;
+                height: 130px;
+            }
+            .curtain{
+                width: 100%;
+                height: 100%;
+                background-color: var(--bcColor);
+            }
+            .middle{
+                height: 100px;
+                width: 220px;
+                display: flex;
+                 .torso{
+                    width: 50%;
+                 }
+            }
+            .bottom{
+                display: flex;
+                align-items: center;
+                height: 120px;
+                width: 100%;
+            }
+        }
+    }
+    .section-container{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        justify-content: space-around;
+        align-items: center;
+        .letters-container{
+            display: flex;
+            align-self: flex-start;
+            gap: .5rem;
+            flex-wrap: wrap;
+            height: 50%;
+            .letter-icon{
+                text-transform: capitalize;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: .25rem;
+                border: 1px solid darkslategray;
+                border-radius: 8px;
+                width: 3rem;
+                height: 3rem;
+                &:hover{
+                    border: 2px solid white;
+                    color: white;
+                }
+            }
+        }
+        .answer-container{
+        }
+    }
+}
+.transparent{
+    background-color: transparent !important;
+}

@@ -1,0 +1,68 @@
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+
+    .header-container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        width: 100%;
+        padding: 8px;
+        background-color: var(--headerColor);
+        color: var(--fontColor);
+
+        .header-title-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .header-title {
+            font-weight: bold;
+            font-size: 1.75rem;
+            cursor: pointer;
+        }
+
+        .header-icon {
+            cursor: pointer;
+            padding: .25rem;
+            .title-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .header-user {
+            text-align: center;
+
+            .header-user-image {
+                cursor: pointer;
+                height: 50px;
+                width: 50px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .header-user-name {
+                margin-top: .25rem;
+
+                .header-user-list {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .leaderboard-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            font-size: 2.75rem;
+            cursor: pointer;
+        }
+    }
+}
