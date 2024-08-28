@@ -60,11 +60,14 @@ export default function Home() {
         }
     }
     function printHangedMan(target) {
-        const hang = Array.from(document.getElementsByClassName("curtain"))
-        hang[lose].classList += " transparent"
+        const hang = Array.from(document.getElementsByClassName("hangman-image"))
+        hang[lose].classList += " unactive"
+        hang[lose+1].classList = "hangman-image"
         target.classList += " wrong-bc"
         setLose(lose + 1)
-        if (lose === hang.length - 1) {
+        console.log(hang.length)
+        console.log(lose)
+        if (lose === 5) {
             Swal.fire({
                 icon: "error",
                 title: "Oh no!",
@@ -92,8 +95,14 @@ export default function Home() {
                     <button onClick={() => getWord()}>START</button>
                 </div>
                 <div className="gallows-container">
-                    <img src="/src/assets/gallows/ahorcado_0.png" alt="hangman-image" className="hangman-image" />
-                    <div className='body-container'>
+                    <img src="/src/assets/gallows/ahorcado_01.png" alt="hangman-image" className="hangman-image"/>
+                    <img src="/src/assets/gallows/ahorcado_02.png" alt="hangman-image" className="hangman-image unactive"/>
+                    <img src="/src/assets/gallows/ahorcado_03.png" alt="hangman-image" className="hangman-image unactive"/>
+                    <img src="/src/assets/gallows/ahorcado_04.png" alt="hangman-image" className="hangman-image unactive"/>
+                    <img src="/src/assets/gallows/ahorcado_05.png" alt="hangman-image" className="hangman-image unactive"/>
+                    <img src="/src/assets/gallows/ahorcado_07.png" alt="hangman-image" className="hangman-image unactive"/>
+                    <img src="/src/assets/gallows/ahorcado_0.png" alt="hangman-image" className="hangman-image unactive" />
+                    {/* <div className='body-container'>
                         <div className='upper'>
                             <div className='curtain head'></div>
                         </div>
@@ -106,7 +115,7 @@ export default function Home() {
                             <div className='curtain left-leg'></div>
                             <div className='curtain right-leg'></div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='section-container'>
                     <div className="letters-container">

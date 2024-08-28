@@ -14,13 +14,18 @@
   box-sizing: border-box;
   font-family: 'Libre Baskerville';
 }
-
-.main-container {
+.page-container{
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 1280px;
-  margin: 0 auto;
-  background-color: var(--bcColor);
+  .main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: var(--bcColor);
+  }
 }
 
 .link {

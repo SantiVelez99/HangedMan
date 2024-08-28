@@ -1,0 +1,36 @@
+.main-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    height: 100px;
+    background-color: #13315c;
+    .page-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--fontColor);
+        font-size: 1.5rem;
+        .footer-logo{
+            height: 100px;
+            width: 100px;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .dev-socials{
+        display: flex;
+        gap: .5rem;
+        font-size: 3rem;
+        color: var(--fontColor);
+        a{
+            color: inherit;
+            &:hover{
+                color: var(--color2);
+            }
+        }
+    }
+}
