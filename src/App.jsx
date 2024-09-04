@@ -4,6 +4,7 @@ import Header from './layout/header/Header'
 import Home from './pages/home/Home'
 import Footer from './layout/footer/Footer'
 import Register from './pages/register/register'
+import LogIn from './pages/login/LogIn'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/logIn' element={<LogIn />}/>
         </Routes>
         <Footer />
       </div>

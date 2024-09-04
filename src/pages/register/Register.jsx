@@ -79,7 +79,7 @@ export default function Register() {
                             })} />
                             {errors.rPassword && <p>{errors.rPassword.message}</p>}
                         </div>
-                        <button type="submit">Enviar</button>
+                        <button type="submit">Register</button>
                     </form>
                 </div>
             </main>

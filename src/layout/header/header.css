@@ -36,13 +36,16 @@
 
         .header-user {
             text-align: center;
-
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: .25rem;
             .header-user-image {
-                cursor: pointer;
                 height: 50px;
                 width: 50px;
-
                 img {
+                    border-radius: 50%;
                     width: 100%;
                 }
             }
@@ -52,6 +55,25 @@
 
                 .header-user-list {
                     cursor: pointer;
+                }
+            }
+            .user-options{
+                position: absolute;
+                top: 90px;
+                .user-options-list{
+                    list-style-type: none;
+                    background-color: #13315c;
+                    padding: .5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    .user-options-item{
+                        &:hover{
+                           color: var(--color2);
+                        }
+                    }
                 }
             }
         }
