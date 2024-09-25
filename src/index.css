@@ -2,7 +2,7 @@
 
 :root {
   --headerColor: #2B4141;
-  --fontColor: #f4f4f4;
+  --fontColor: #F4F9E9;
   --color: #0EB1D2;
   --color2: #34E4EA;
   --bcColor: #8AB9B5;
@@ -22,6 +22,9 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     background-color: var(--bcColor);

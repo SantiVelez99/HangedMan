@@ -60,6 +60,8 @@
             .user-options{
                 position: absolute;
                 top: 90px;
+                right: 0;
+                width: 125px;
                 .user-options-list{
                     list-style-type: none;
                     background-color: #13315c;
@@ -73,6 +75,22 @@
                         &:hover{
                            color: var(--color2);
                         }
+                    }
+                }
+            }
+            .login-container{
+                display: flex;
+                background-color: var(--color2);
+                border-radius: 15px;
+                .login-button,.register-button{
+                    padding: .5rem;
+                    border-radius: 15px;
+                    font-weight: bold;
+                    text-shadow: 1px 1px 3px black;
+                    &:hover{
+                        background-color: white;
+                        color: var(--color2);
+                        text-shadow: none;
                     }
                 }
             }

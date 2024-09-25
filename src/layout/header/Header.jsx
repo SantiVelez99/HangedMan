@@ -3,13 +3,14 @@ import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAward, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useUser } from '../../context/UserContext'
+import { useState } from 'react'
 export default function Header() {
 
     const { assetsURL, user, logOut } = useUser()
-
+    const [ list, setList ] = useState(false)
     function displayList() {
-        const list = document.getElementById('userOptionsList')
-        list.classList == "user-options unactive" ? list.classList = "user-options" : list.classList = "user-options unactive"
+        if(list) setList(false)
+        if(!list) setList(true)
     }
 
     return (
@@ -41,9 +42,9 @@ export default function Header() {
                                             <span className='header-user-list'>{user?.name}  <FontAwesomeIcon className='icon' icon={faCaretDown} /></span>
                                         </NavLink>
                                     </div>
-                                    <div id="userOptionsList" className="user-options unactive">
+                                    <div id="userOptionsList" className={ list ? "user-options" : "user-options unactive"}>
                                         <ul className='user-options-list'>
-                                            <NavLink className="link">
+                                            <NavLink className="link" to={'/my-profile'} onClick={() => setList(false)}>
                                                 <li className='user-options-item'>My Profile</li>
                                             </NavLink>
                                             <NavLink className="link" onClick={() => logOut()}>

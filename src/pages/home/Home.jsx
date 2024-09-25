@@ -8,8 +8,8 @@ export default function Home() {
     const [word, setWord] = useState([])
     const [lose, setLose] = useState(0)
     const [letters, setLetters] = useState([])
-    const [wordLength, setWordLength] = useState(0)
     const [sprite, setSprite] = useState("")
+    const [ active, setIsActive ] = useState(false)
     const abc = Array.from("abcdefghijklmnopqrstuvwxyz")
 
     async function getPokemon() {
@@ -19,7 +19,6 @@ export default function Home() {
             const pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomID}`)
             setSprite(pokemon.data.sprites.front_default)
             setWord(Array.from(pokemon.data.name))
-            setWordLength((Array.from(pokemon.data.name)).length)
             closeModal()
         } catch (error) {
             console.log(error)
@@ -43,7 +42,10 @@ export default function Home() {
     }
     useEffect(() => {
         const handleKeyUp = (e) => {
-            if (e.keyCode >= 65 && e.keyCode <= 90 && !letters.some(letter => letter === e.key)) {
+            if(e.keyCode === 13 && !active){
+                getPokemon()
+            }
+            if (active && e.keyCode >= 65 && e.keyCode <= 90 && !letters.some(letter => letter === e.key)) {
                 setLetters([...letters, e.key])
                 keyPress(e)
             }
@@ -58,6 +60,7 @@ export default function Home() {
     function closeModal() {
         const modal = Array.from(document.getElementsByClassName("start-modal"))
         modal[0].classList += " unactive"
+        setIsActive(true)
     }
     function keyPress(e) {
         let tar
@@ -78,7 +81,6 @@ export default function Home() {
     }
     function findLetter(letter, target) {
         const array = Array.from(document.getElementsByClassName("letters-underscore"))
-        console.log(wordLength)
         let indexes = []
         word.forEach((ele, i) => {
             if (ele === letter) indexes.push(i)
@@ -119,7 +121,6 @@ export default function Home() {
         hang[lose + 1].classList = "hangman-image"
         target.classList += " wrong-bc"
         setLose(prev => prev + 1)
-        console.log(lose)
         if (lose === 5) {
             Swal.fire({
                 imageUrl: sprite,
