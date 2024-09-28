@@ -1,0 +1,108 @@
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+
+    .header-container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        width: 100%;
+        padding: 8px;
+        background-color: #13315c;
+        color: var(--fontColor);
+
+        .header-title-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .header-title {
+            font-weight: bold;
+            font-size: 1.75rem;
+            cursor: pointer;
+        }
+
+        .header-icon {
+            cursor: pointer;
+            padding: .25rem;
+            .title-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .header-user {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: .25rem;
+            .header-user-image {
+                height: 50px;
+                width: 50px;
+                img {
+                    border-radius: 50%;
+                    width: 100%;
+                }
+            }
+
+            .header-user-name {
+                margin-top: .25rem;
+
+                .header-user-list {
+                    cursor: pointer;
+                }
+            }
+            .user-options{
+                position: absolute;
+                top: 90px;
+                right: 0;
+                width: 125px;
+                .user-options-list{
+                    list-style-type: none;
+                    background-color: #13315c;
+                    padding: .5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    .user-options-item{
+                        &:hover{
+                           color: var(--color2);
+                        }
+                    }
+                }
+            }
+            .login-container{
+                display: flex;
+                background-color: var(--color2);
+                border-radius: 15px;
+                .login-button,.register-button{
+                    padding: .5rem;
+                    border-radius: 15px;
+                    font-weight: bold;
+                    text-shadow: 1px 1px 3px black;
+                    &:hover{
+                        background-color: white;
+                        color: var(--color2);
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+
+        .leaderboard-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            font-size: 2.75rem;
+            cursor: pointer;
+        }
+    }
+}

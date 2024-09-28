@@ -1,0 +1,51 @@
+.user-profile{
+    .profile-avatar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+
+        .title-container{
+            display: flex;
+            gap: .5rem;
+            color: var(--fontColor);
+            font-size: 1.5rem;
+            .edit-icon{
+                cursor: pointer;
+                &:hover{
+                    color: var(--color2);
+                }
+            }
+        }
+    }
+    .avatar-gallery{
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: .625rem;
+        .title{
+            text-shadow: 1px 1px 3px black;
+        }
+        .avatar-container{
+            width: 100px;
+            height: 100px;
+            padding: .25rem;
+            border: 1px solid black;
+            background-color: var(--fontColor);
+            border-radius: 15px;
+            cursor: pointer;
+            &:hover{
+                border: 2px solid black;
+            }
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+.swal-container{
+    border: 2px solid var(--fontColor);
+}
