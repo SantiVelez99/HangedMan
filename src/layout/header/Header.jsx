@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAward, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useUser } from '../../context/UserContext'
 import { useState } from 'react'
+import icon from '../../assets/icon/hm-icon.svg'
 export default function Header() {
 
     const { assetsURL, user, logOut } = useUser()
@@ -20,7 +21,7 @@ export default function Header() {
                     <NavLink className='link' to={'/'}>
                         <div className='header-title-container'>
                             <div className="header-icon">
-                                <img src="/src/assets/icon/file.png" alt="hanged-icon" className='title-icon' />
+                                <img src={icon} alt="hanged-icon" className='title-icon' />
                             </div>
                             <div className="header-title">
                                 HangMan

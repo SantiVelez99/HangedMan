@@ -2,6 +2,13 @@ import axios from 'axios'
 import './home.css'
 import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
+import img1 from '../../assets/gallows/ahorcado_01.svg'
+import img2 from '../../assets/gallows/ahorcado_02.svg'
+import img3 from '../../assets/gallows/ahorcado_03.svg'
+import img4 from '../../assets/gallows/ahorcado_04.svg'
+import img5 from '../../assets/gallows/ahorcado_05.svg'
+import img6 from '../../assets/gallows/ahorcado_07.svg'
+import img7 from '../../assets/gallows/ahorcado_0.svg'
 
 export default function Home() {
 
@@ -153,13 +160,13 @@ export default function Home() {
                     <button onClick={() => getPokemon()}>START</button>
                 </div>
                 <div className="gallows-container">
-                    <img src="/src/assets/gallows/ahorcado_01.png" alt="hangman-image" className="hangman-image" />
-                    <img src="/src/assets/gallows/ahorcado_02.png" alt="hangman-image" className="hangman-image unactive" />
-                    <img src="/src/assets/gallows/ahorcado_03.png" alt="hangman-image" className="hangman-image unactive" />
-                    <img src="/src/assets/gallows/ahorcado_04.png" alt="hangman-image" className="hangman-image unactive" />
-                    <img src="/src/assets/gallows/ahorcado_05.png" alt="hangman-image" className="hangman-image unactive" />
-                    <img src="/src/assets/gallows/ahorcado_07.png" alt="hangman-image" className="hangman-image unactive" />
-                    <img src="/src/assets/gallows/ahorcado_0.png" alt="hangman-image" className="hangman-image unactive" />
+                    <img src={img1} alt="hangman-image" className="hangman-image" />
+                    <img src={img2} alt="hangman-image" className="hangman-image unactive" />
+                    <img src={img3} alt="hangman-image" className="hangman-image unactive" />
+                    <img src={img4} alt="hangman-image" className="hangman-image unactive" />
+                    <img src={img5} alt="hangman-image" className="hangman-image unactive" />
+                    <img src={img6} alt="hangman-image" className="hangman-image unactive" />
+                    <img src={img7} alt="hangman-image" className="hangman-image unactive" />
                     {/* <div className='body-container'>
                         <div className='upper'>
                             <div className='curtain head'></div>
