@@ -7,10 +7,10 @@ import { useState } from 'react'
 export default function Header() {
 
     const { assetsURL, user, logOut } = useUser()
-    const [ list, setList ] = useState(false)
+    const [list, setList] = useState(false)
     function displayList() {
-        if(list) setList(false)
-        if(!list) setList(true)
+        if (list) setList(false)
+        if (!list) setList(true)
     }
 
     return (
@@ -42,7 +42,7 @@ export default function Header() {
                                             <span className='header-user-list'>{user?.name}  <FontAwesomeIcon className='icon' icon={faCaretDown} /></span>
                                         </NavLink>
                                     </div>
-                                    <div id="userOptionsList" className={ list ? "user-options" : "user-options unactive"}>
+                                    <div id="userOptionsList" className={list ? "user-options" : "user-options unactive"}>
                                         <ul className='user-options-list'>
                                             <NavLink className="link" to={'/my-profile'} onClick={() => setList(false)}>
                                                 <li className='user-options-item'>My Profile</li>
@@ -55,12 +55,12 @@ export default function Header() {
                                 </>
                                 :
                                 <div className="login-container">
-                                    <div className='login-button'
-                                    ><NavLink className='link' to={'/logIn'}>Log In</NavLink>
-                                    </div>
-                                    <div className="register-button">
-                                        <NavLink className='link' to={'/register'}>Register</NavLink>
-                                    </div>
+                                    <NavLink className='link' to={'/logIn'}>
+                                        <div className='login-button'>Log In</div>
+                                    </NavLink>
+                                    <NavLink className='link' to={'/register'}>
+                                        <div className="register-button">Register</div>
+                                    </NavLink>
                                 </div>
                         }
 

@@ -7,9 +7,11 @@ export default function Footer() {
         <footer className="main-footer">
             <div className="page-info">
                 <div className="footer-logo">
-                    <img src="/src/assets/icon/file.png" alt="hanged-icon" className='title-icon' />
+                    <NavLink to={"/"} className='link'>
+                        <img src="/src/assets/icon/file.png" alt="hanged-icon" className='title-icon' />
+                    </NavLink>
                 </div>
-                <div className="footer-title">HangMan</div>
+                <div className="footer-title"><NavLink className='link' to={"/"}>HangMan</NavLink></div>
             </div>
             <div className="dev-socials">
                 <NavLink to={"https://www.linkedin.com/in/santiago-velez-173b64180/"} target="_blank">
